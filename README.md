@@ -1,4 +1,4 @@
-# auto-version-plugin
+#jcv-maven-plugin
 
 #### 项目介绍
 一个用于用于修改在指定文件中的特定内容添加版本号的maven插件
