@@ -1,4 +1,4 @@
-# auto-version-plugin
+#jcv-maven-plugin
 
 #### 项目介绍
 一个用于用于修改在指定文件中的特定内容添加版本号的maven插件
@@ -9,29 +9,41 @@
 
 #### 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
+1.下载1.0.0版本后使用mvn install命令将插件安装到本地maven仓库
 
 #### 使用说明
 
-1. xxxx
-2. xxxx
-3. xxxx
-
+			<plugin>
+				<groupId>com.polluxframework</groupId>
+				<artifactId>jcv-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>process</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>process</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<suffix>
+						<param>html</param>
+					</suffix>
+					<excludes>
+						<exclude>/static/3rd/</exclude>
+					</excludes>
+					<includes>
+						<include>/static/pollux</include>
+						<include>/static/modules</include>
+					</includes>
+				</configuration>
+			</plugin>
+    配置suffix 页面后缀
+    配置excludes排除不需要追加版本号的CSS 和JS
+    需要includes追加版本号的CSS和JS
 #### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
+1、主要思想来源于byzy的jcv-maven-plugin插件
+2、修复插件的部分工具类可能存在的问题
+3、重构大部分代码，显得更加精炼
 
 
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
