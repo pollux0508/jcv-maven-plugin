@@ -43,7 +43,6 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
 	}
 
 	protected int processVersion(StringBuffer html, int index, List<FileInfo> processSuccessFiles, final String fileType) {
-		logger.debug("prefix index :" + index);
 		DocLabel docLabel = newDocLabelByType(index, fileType);
 		if (docLabel == null) {
 			return -1;
@@ -85,7 +84,6 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
 		String link = new String(links);
 		logger.debug("find " + fileType + " link:" + link);
 		processLink(html, docLabel.getStartSignPos() - 1, docLabel.getSourceSignPos() - 1, link, fileType, processSuccessFiles);
-		logger.debug("next index :" + docLabel.getEndSignPos());
 		return processVersion(html, docLabel.getEndSignPos(), processSuccessFiles, fileType);
 	}
 
@@ -115,7 +113,6 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
 				int index = fullLink.indexOf(include, 0);
 				if (index > 0) {
 					fullLink.delete(0, index);
-					logger.warn(" fullLink :" + fullLink.toString());
 					break;
 				}
 			}
@@ -127,14 +124,13 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
 		}
 
 		if (fileInfo != null && !Constants.EMPTY_STR.equals(fullLink.toString())) {
-			logger.warn(" insertVersion fullLink  :" + fullLink.toString());
 			insertVersion(sb, start, end, historyLink, fullLink.toString(), fileInfo, processSuccessFiles);
 		}
 	}
 
 	private void insertVersion(StringBuffer sb, final int start, final int end, final String historyLink, String fullLink, FileInfo fileInfo, List<FileInfo> processSuccessFiles) {
 		if (fileInfo != null) {
-			logger.debug("process link:" + historyLink);
+			logger.debug("process link:" + historyLink+" : "+fullLink);
 			String versionStr = "";
 			if (!checkIsSkip(fileInfo, config)) {
 				versionStr = getVersionStr(fileInfo, config.isInName(), historyLink);

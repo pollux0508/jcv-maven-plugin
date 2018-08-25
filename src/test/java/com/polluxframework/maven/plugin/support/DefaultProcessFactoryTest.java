@@ -25,6 +25,7 @@ public class DefaultProcessFactoryTest {
 		List<String> includes = new ArrayList<>();
 		includes.add("/static/pollux");
 		includes.add("/static/modules");
+		config.setSkipSuffix(".min");
 		config.setIncludes(includes);
 		config.setExcludes(new ArrayList<String>());
 		config.setVersionLabel("version");

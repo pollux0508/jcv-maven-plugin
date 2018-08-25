@@ -68,7 +68,6 @@ public class DefaultProcessFactory extends AbstractProcessFactory {
 		}
 		List<FileInfo> processSuccessFiles = new ArrayList<>();
 		for (PageInfo pageInfo : pages) {
-			logger.debug("find page:" + pageInfo.getFile().getPath() + " to " + pageInfo.getOutFile().getPath());
 			try {
 				String strAll = FileUtils.readFileToStr(pageInfo.getFile(), config.getSourceEncoding());
 				List<String> saveHtml = new ArrayList<>();
@@ -83,7 +82,7 @@ public class DefaultProcessFactory extends AbstractProcessFactory {
 				} else {
 					saveHtml.add(sb.toString());
 				}
-				logger.debug(" page:" + pageInfo.getFile().getName() + " Processing is complete");
+				logger.debug("page:" + pageInfo.getFile().getName() + " Processing is complete");
 				FileUtils.writeFile(pageInfo.getOutFile(), config.getSourceEncoding(), saveHtml);
 			} catch (IOException e) {
 				logger.error(" the file process error :" + pageInfo.getFile().getPath(), e);
