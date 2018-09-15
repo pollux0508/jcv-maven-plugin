@@ -4,8 +4,6 @@ import com.polluxframework.maven.plugin.entity.Config;
 import com.polluxframework.maven.plugin.support.DefaultProcessFactory;
 import com.polluxframework.maven.plugin.support.ProcessFactory;
 import com.polluxframework.maven.plugin.utils.FileUtils;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -18,12 +16,12 @@ import java.io.File;
  **/
 
 @Mojo( name = "process" , defaultPhase = LifecyclePhase.PROCESS_RESOURCES, threadSafe = true)
-public class JCVMojo extends BaseMojo {
+public class JcvMojo extends BaseMojo {
 	@Parameter( defaultValue = "${basedir}/src/main/webapp", property = "webapp", required = true )
 	protected File webapp;
 
 	@Override
-	public void execute() throws MojoExecutionException, MojoFailureException {
+	public void execute(){
 		String webRoot=webapp.getPath();
 		if(!webRoot.endsWith(FileUtils.getSystemLineSeparator())){
 			webRoot+=FileUtils.getSystemFileSeparator();

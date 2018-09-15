@@ -2,19 +2,15 @@ package com.polluxframework.maven.plugin.support;
 
 import com.polluxframework.maven.plugin.constant.MethodEnum;
 import com.polluxframework.maven.plugin.entity.Config;
-import com.polluxframework.maven.plugin.entity.FileInfo;
 import com.polluxframework.maven.plugin.support.logger.SystemLogger;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-import static org.junit.Assert.*;
 
 public class DefaultProcessFactoryTest {
 	@Test
-	public void init() throws Exception {
+	public void init() {
 		Config config = new Config();
 		config.setMethod(MethodEnum.MD5_METHOD);
 		List<String> suffix = new ArrayList<>();
