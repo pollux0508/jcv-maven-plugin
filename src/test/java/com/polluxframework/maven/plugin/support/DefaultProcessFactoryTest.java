@@ -17,10 +17,9 @@ public class DefaultProcessFactoryTest {
 		suffix.add("html");
 		config.setSuffix(suffix);
 		config.setSourceEncoding("UTF-8");
-		config.setOutDirRoot("E:\\Work\\pollux-resource\\target\\pollux-resource-1.0-SNAPSHOT");
+		config.setOutDirRoot("E:\\Work");
 		List<String> includes = new ArrayList<>();
-		includes.add("/static/pollux");
-		includes.add("/static/modules");
+		includes.add("/static");
 		config.setSkipSuffix(".min");
 		config.setIncludes(includes);
 		config.setExcludes(new ArrayList<String>());
@@ -28,7 +27,7 @@ public class DefaultProcessFactoryTest {
 		DefaultProcessFactory defaultProcessFactory = new DefaultProcessFactory(config);
 		defaultProcessFactory.buildLoggerFactory(new SystemLogger());
 
-		defaultProcessFactory.init("E:\\Work\\pollux-resource\\src\\main\\webapp");
+		defaultProcessFactory.init("E:\\GitHub\\pollux\\pollux-resource\\src\\main\\webapp");
 		defaultProcessFactory.execute();
 	}
 }

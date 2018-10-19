@@ -146,7 +146,6 @@ public class BaseUtils {
 		}
 		if (isLike) {
 			for (String bean : list) {
-				System.out.println(bean+" : "+checkStr);
 				if (StringUtils.isNotEmpty(bean) && bean.contains(checkStr)) {
 					return true;
 				}

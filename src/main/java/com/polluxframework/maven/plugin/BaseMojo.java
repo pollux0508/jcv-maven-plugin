@@ -36,7 +36,7 @@ public abstract class BaseMojo extends AbstractMojo {
 	/**
 	 * 版本号标签
 	 **/
-	@Parameter(defaultValue = "version")
+	@Parameter(defaultValue = "v")
 	protected String versionLabel;
 
 	/**

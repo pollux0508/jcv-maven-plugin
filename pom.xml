@@ -8,7 +8,7 @@
 	<packaging>maven-plugin</packaging>
 
 	<name>jcv-maven-plugin</name>
-	<url>http://maven.apache.org</url>
+	<url>http://www.pollux.com/</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

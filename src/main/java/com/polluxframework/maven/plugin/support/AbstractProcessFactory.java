@@ -188,7 +188,7 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
 			return true;
 		}
 		List<String> excludes = config.getExcludes();
-		if ((!excludes.isEmpty()) && BaseUtils.checkStrIsInList(excludes, fileInfo.getRelativelyFilePath(), true)) {
+		if (excludes!=null&&(!excludes.isEmpty()) && BaseUtils.checkStrIsInList(excludes, fileInfo.getRelativelyFilePath(), true)) {
 			logger.info("The file  is not processed:" + fileInfo.getFileName());
 			return true;
 		}
@@ -230,6 +230,7 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
 		}
 	}
 
+	@Override
 	public void buildLoggerFactory(Log logger) {
 		this.logger = logger;
 	}
